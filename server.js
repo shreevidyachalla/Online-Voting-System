@@ -1,8 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const Vote = require("./models/Vote");
-const User = require("./models/User");
+const Vote = require("./models/vote");
+const User = require("./models/user");
 
 const app = express();
 app.use(cors());
