@@ -2,6 +2,7 @@
 
 async function registerUser()
 {
+    alert("Register button clicked");
     const name =
         document.getElementById("name").value;
 
@@ -13,7 +14,7 @@ async function registerUser()
 
     const response =
         await fetch(
-            "https://online-voting-system-36fi.onrender.com/register,
+            "https://online-voting-system-36fi.onrender.com/register",
             {
                 method: "POST",
 
@@ -122,7 +123,7 @@ async function vote(candidate)
 async function updateVotePage()
 {
     const response =
-        await fetch("https://online-voting-system-36fi.onrender.com /results");
+        await fetch("https://online-voting-system-36fi.onrender.com/results");
 
     const data =
         await response.json();
