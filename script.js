@@ -13,7 +13,7 @@ async function registerUser()
 
     const response =
         await fetch(
-            "http://localhost:3000/register",
+            "https://online-voting-system-36fi.onrender.com/register,
             {
                 method: "POST",
 
@@ -53,7 +53,7 @@ async function loginUser()
 
     const response =
         await fetch(
-            "http://localhost:3000/login",
+            "https://online-voting-system-36fi.onrender.com/login",
             {
                 method: "POST",
 
@@ -96,7 +96,7 @@ async function vote(candidate)
         localStorage.getItem("currentVoter");
 
     const response = await fetch(
-        "http://localhost:3000/vote",
+        "https://online-voting-system-36fi.onrender.com/vote",
         {
             method: "POST",
 
@@ -122,7 +122,7 @@ async function vote(candidate)
 async function updateVotePage()
 {
     const response =
-        await fetch("http://localhost:3000/results");
+        await fetch("https://online-voting-system-36fi.onrender.com /results");
 
     const data =
         await response.json();
@@ -145,7 +145,7 @@ async function updateVotePage()
 async function loadResults()
 {
     const response =
-        await fetch("http://localhost:3000/results");
+        await fetch("https://online-voting-system-36fi.onrender.com/results");
 
     const data =
         await response.json();
@@ -166,7 +166,7 @@ async function loadResults()
 async function loadWinner()
 {
     const response =
-        await fetch("http://localhost:3000/winner");
+        await fetch("https://online-voting-system-36fi.onrender.com/winner");
 
     const data =
         await response.json();
@@ -181,7 +181,7 @@ async function loadWinner()
 async function loadChart()
 {
     const response =
-        await fetch("http://localhost:3000/results");
+        await fetch("https://online-voting-system-36fi.onrender.com/results");
 
     const data =
         await response.json();
