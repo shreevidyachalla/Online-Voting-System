@@ -53,30 +53,29 @@ app.post("/vote", async (req, res) => {
 });
 
 app.get("/results", async (req, res) => {
+    try {
+        const votes = await Vote.find();
 
-    const votes = await Vote.find();
+        let modi = 0;
+        let murmu = 0;
+        let pawankalyan = 0;
 
-    let modi = 0;
-    let murmu = 0;
-    let pawankalyan = 0;
+        votes.forEach((vote) => {
+            if (vote.candidate === "modi") modi++;
+            else if (vote.candidate === "murmu") murmu++;
+            else if (vote.candidate === "pawankalyan") pawankalyan++;
+        });
 
-    votes.forEach((vote) => {
+        res.json({
+            modi,
+            murmu,
+            pawankalyan
+        });
 
-        if(vote.candidate === "modi")
-            modi++;
-
-        else if(vote.candidate === "murmu")
-            murmu++;
-
-        else if(vote.candidate === "pawankalyan")
-            pawankalyan++;
-    });
-
-    res.json({
-        modi,
-        murmu,
-        pawankalyan
-    });
+    } catch (error) {
+        console.log(error);
+        res.status(500).send(error.message);
+    }
 });
 
 app.get("/winner", async (req, res) => {
