@@ -104,17 +104,28 @@ app.get("/winner", async (req, res) => {
 
     let max = Math.max(modi, murmu, pawankalyan);
 
-    if(max > 0)
-    {
-        if(modi === max)
-            winner = "Modi";
+if(max === 0)
+{
+    winner = "No Votes Yet";
+}
+else
+{
+    let winners = [];
 
-        else if(murmu === max)
-            winner = "Murmu";
+    if(modi === max)
+        winners.push("Modi");
 
-        else
-            winner = "PawanKalyan";
-    }
+    if(murmu === max)
+        winners.push("Murmu");
+
+    if(pawankalyan === max)
+        winners.push("PawanKalyan");
+
+    if(winners.length > 1)
+        winner = "Tie between " + winners.join(" and ");
+    else
+        winner = winners[0];
+}
 
     res.json({ winner });
 });
