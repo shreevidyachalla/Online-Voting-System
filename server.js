@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const Vote = require("./models/vote");
@@ -7,6 +8,7 @@ const User = require("./models/user");
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(express.static(__dirname));
 
 mongoose.connect(process.env.MONGO_URL)
 .then(() => {
@@ -17,7 +19,7 @@ mongoose.connect(process.env.MONGO_URL)
 });
 
 app.get("/", (req, res) => {
-    res.send("Voting Backend Running");
+    res.sendFile(path.join(__dirname, "index.html"));
 });
 
 
