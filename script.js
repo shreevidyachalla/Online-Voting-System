@@ -2,7 +2,6 @@
 
 async function registerUser()
 {
-    alert("Register button clicked");
     const name =
         document.getElementById("name").value;
 
