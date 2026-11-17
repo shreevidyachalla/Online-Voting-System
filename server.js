@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
@@ -23,7 +24,7 @@ app.get("/", (req, res) => {
 });
 
 
-// ADD THIS PART HERE
+
 app.post("/vote", async (req, res) => {
 
     const { voterId, candidate } = req.body;
